@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h1 id="h1_title">Find Complex Words </h1><br/><br/><br/><br/>
+<table id="h3_color" >
+<form class="search-form" method="GET" name="input text you want to simplify">{% csrf_token %}
+    
+    <tr>
+        <td><label for="id_original_text"><p>  Please inpute original text here:<input type="submit" style="float: right" value="Find Complex Words"  /></p></label>{{ form.as_p }}</td>
+    </tr>
+</form>
+</table>
+{% endblock content %}

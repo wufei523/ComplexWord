@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+{% block content %} 
+{% csrf_token %}
+<br/>
+
+<form method="POST" name="edit simplified text" >{% csrf_token %}
+   <label> <h1 id="h1_contribute">Edit this simplified sentence:</h1></label><br/>
+    <br/><br/>
+    {{ form.as_p }}<br/>
+    <input type="submit" value="submit"  />
+</form><br />
+{% endblock content %}

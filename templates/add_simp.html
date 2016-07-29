@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% block content %} <br/>
+<h1 id="h1_contribute">Original Text:</h1><br/><br/>
+<h2>{{ orig.hard_text }}</h2><br/>
+<form method="POST" >{% csrf_token %}
+    <label for="id_simple_text"><h2 id="h3_color">Simplify it:</h2></label>
+    {{ form.as_p }}<br/>
+    <input type="submit" value="submit"  />
+</form><br /><HR/>
+{% if results %}
+
+
+<form name="vote for results" method="POST" >{% csrf_token %}
+    <label for="vote"><h2 id="h3_color">Other simplified version:</h2></label>
+    {% for result in results %}
+    <h3><input type="checkbox" value={{ result.simple_text }} name="votes" id="vote">  {{ result.simple_text }}   </input><a href="{% url 'edit_simp' pk=result.id %}">edit</a></h3>
+    {% endfor %}
+    <br/>
+    <input type="submit" value="Vote" />
+</form>
+{% endif %}
+<br/>
+{% endblock content %}
